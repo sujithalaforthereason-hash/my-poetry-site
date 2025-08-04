@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dusra Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #2d2d2d;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      text-align: center;
+      color: #c0392b;
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    /* ❤️ Heart Style */
+    .heart {
+      width: 20px;
+      height: 20px;
+      position: fixed;
+      background: red;
+      transform: rotate(45deg);
+      animation: fall 4s linear infinite;
+      z-index: 1;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: red;
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+        opacity: 1;
+      }
+      100% {
+        top: 110%;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>❤️ Ye rha mera likha hua, ache se padh ❤️</h1>
+    <p>
+      agar tuje esa feel hota hai to sun ab meko kya feel hua tha <br><br>
+
+      jab tere se mila tab mujhe esa feel hua ki mai tumko bhaut pahle se janta hu<br>
+      aur wo dino mai bhaut jada stress mai tha phir tu aayi life mai <br>
+      aur pata nhi kyu meri life change ho gyi starting mai to dosti hui aur kuch din mai hi bhaut ache dost bane <br>
+      aur phir mujhe tumse pyar ho gya pta nhi kese lekin ho gaya kyuki pata nhi bas ho gya (ab jaha puchi ho kese hua soch lena ..) hai to <br>
+      overthinking to mai bhi karta tha lekin tera ehsas tera pyar ne usko bhi band kar diya kyuki tum ho hi itni achi <br><br>
+
+      👉 <strong>Disclaimer</strong> — meko tere jesa utna peotry likhne naa aata to isme hi adjust karna —<br><br>
+
+      pta nhi kya ki ho tum har waqt tere bare mai hi sochta rehta {hm padhi aur coding time nhi aata hehe..} <br>
+      to ji pyar esa ho gya ki uff ye baate ye feeling .. <br>
+      haa tu mere life mai khusiya layi ho <br>
+      wese bhi life to mai jeeta hi but socha tha akele jeyunga no shaadi no pyar <br>
+      phir tu aayi mera life mai aur meko complete ki i mean meko wo ki samj le khud se kya ki<br><br>
+      lekin pyar ho gaya aur ye pyar ye aaj kal ka generation jesa nhi hai mai pyar karna krishn ji , ram ji, aur mahadev se sikha hu <br>
+      to respect , pyar dono bhar bhar ke hai aur hanji i love u ❤️
+    </p>
+  </div>
+
+  <script>
+    // ❤️ Dil girane ka JavaScript
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
