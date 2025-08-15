@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise</title>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+#card {
+    width: 450px;
+    background: rgba(255,255,255,0.95);
+    border: 2px solid #ff6a6a;
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
+}
+#card h1 { 
+    font-size: 32px; 
+    color: #ff4d6d; 
+    margin-bottom: 15px; 
+}
+#card p { 
+    font-size: 20px; 
+    color: #333; 
+    line-height: 1.5; 
+    opacity: 0; 
+    transform: translateY(20px); 
+    animation: floatText 1s forwards; 
+}
+@keyframes floatText {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.balloon {
+    position: absolute;
+    bottom: -60px;
+    font-size: 40px;
+    animation: floatUp 6s linear infinite;
+}
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<div id="card">
+    <h1>Happy Birthday Kriti 🎉</h1>
+    <p class="line">Thanks to your mom & dad for giving you life, 
+        and also to the Among Us developer for coming into my life. 💖</p>
+    <p class="line">Abhi jaldi jaldi likh rha hu to</p>
+    <p class="line">Aaj ka din sirf ek normal din nahi hai… aaj ka din tumhare liye khaas hai, tumhare smile, tumhari vibes, aur tumhari har choti-badi khushi celebrate karne ka din hai. 🥰</p>
+    <p class="line">Mujhe har din ye feel hota hai ki duniya me tumhari tarah koi light nahi hai jo itni naturally khush kar de. Umeed karta hoon ki tumhara ye birthday full of laughter, love, aur surprises ho. 🎂🎉</p>
+    <p class="line">Happy Birthday, Kriti! Tum hamesha yunhi special aur amazing raho 😘💖</p>
+</div>
+
+<script>
+function createBalloon() {
+    const balloon = document.createElement('div');
+    balloon.classList.add('balloon');
+    const colors = ['🎈','🎉','🥳','💖','🎊'];
+    balloon.textContent = colors[Math.floor(Math.random()*colors.length)];
+    balloon.style.left = Math.random() * window.innerWidth + 'px';
+    balloon.style.fontSize = (30 + Math.random() * 20) + 'px';
+    document.body.appendChild(balloon);
+    setTimeout(() => { balloon.remove(); }, 6000);
+}
+setInterval(createBalloon, 400);
+
+// Animate text lines one by one
+const lines = document.querySelectorAll('.line');
+lines.forEach((line, index) => {
+    line.style.animationDelay = `${index * 1.5}s`;
+});
+</script>
+
+</body>
+</html>
